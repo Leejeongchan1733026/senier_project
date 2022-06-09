@@ -1,0 +1,103 @@
+.container-calendar {
+    background: #ffffff;
+    padding: 15px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+    font-family: 'Pretendard';
+}
+
+.button-container-calendar button {
+    cursor: pointer;
+    color: var(--main-color);
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.table-calendar {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-calendar th {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #e2e2e2;
+    background-color: #f8fafc;
+    text-align: center;
+    vertical-align: center;
+}
+
+.table-calendar td {
+    width: 50px;
+    height: 100px;
+    border: 1px solid #e2e2e2;
+    text-align: center;
+    vertical-align: center;
+}
+
+.table-calendar td:hover {
+    background-color: #f8fafc;
+}
+
+.date-picker.selected {
+    font-weight: bold;
+    border: 2px solid var(--main-color);
+}
+
+.date-picker.selected span {
+    border-bottom: 2px solid currentColor;
+}
+
+/* sunday */
+.date-picker:nth-child(1) {
+    color: red;
+}
+
+/* friday */
+.date-picker:nth-child(7) {
+    color: blue;
+}
+
+#monthAndYear {
+    text-align: center;
+    margin-top: 0;
+}
+
+.button-container-calendar {
+    position: relative;
+    margin-bottom: 1em;
+    overflow: hidden;
+    clear: both;
+}
+
+#previous {
+    float: left;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+}
+
+#next {
+    float: right;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-container-calendar {
+    margin-top: 1em;
+    padding: 10px 0;
+}
+
+.footer-container-calendar select {
+    cursor: pointer;
+    display: inline-block;
+    zoom: 1;
+    background: #ffffff;
+    color: #585858;
+    border: 1px solid #bfc5c5;
+    border-radius: 3px;
+    padding: 5px 1em;
+}
