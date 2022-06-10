@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="user.UserDAO" %>
 <%@ page import="user.User" %>
 <%@ page import="java.io.PrintWriter" %>
@@ -22,6 +21,12 @@
 </head>
 <body>
 	<%
+		int maxImageSize = 100*1024*1024;
+		String endCodingType = "UTF-8";
+		String directory = "C:/Users/com/Desktop/spaceZ/test/src/main/webapp/images/userProfile";
+		MultipartRequest multipartRequest = new MultipartRequest(request, directory, maxImageSize, endCodingType, new DefaultFileRenamePolicy());
+		String fileName = multipartRequest.getFilesystemName("upLoadFile");
+		System.out.println(fileName);
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.reviseUserInfo(user);
 		if(result == -1){
@@ -37,10 +42,6 @@
 			script.println("alert('수정이 완료되었습니다.')");
 			script.println("location.href = 'myInfo.jsp'");
 			script.println("</script>");
-			int maxImageSize = 100*1024*1024;
-			String endCodingType = "UTF-8";
-			String directory = "C:/Users/com/Desktop/spacelease/test/src/main/webapp/images/userProfile";
-			MultipartRequest multipartRequest = new MultipartRequest(request, directory, maxImageSize, endCodingType);
 		}
 	%>
 

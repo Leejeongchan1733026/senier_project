@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="user.UserDAO" %>
 <%@ page import="user.User" %>
 <%@ page import="java.io.PrintWriter" %>
@@ -25,7 +26,7 @@
 		String endCodingType = "UTF-8";
 		String directory = "C:/Users/com/Desktop/spaceZ/test/src/main/webapp/images/userProfile";
 		MultipartRequest multipartRequest = new MultipartRequest(request, directory, maxImageSize, endCodingType, new DefaultFileRenamePolicy());
-		String fileName = multipartRequest.getFilesystemName("upLoadFile");
+		String fileName = multipartRequest.getFilesystemName("uploadFile");
 		System.out.println(fileName);
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.reviseUserInfo(user);
