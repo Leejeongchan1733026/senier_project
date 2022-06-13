@@ -36,6 +36,7 @@
 				deleteFile.delete();
 				Path oldfile = Paths.get(directory + "/" + fileName);
 				Path newfile = Paths.get(directory + "/" + ID +".jpg");
+				System.out.println(ID);
 				Files.move(oldfile, newfile);
 			} catch (Exception e) {
 				e.printStackTrace();
