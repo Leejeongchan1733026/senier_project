@@ -3,7 +3,12 @@
 <%@ page import="post.PostDAO" %>
 <%@ page import="post.Post" %>
 <%@ page import="java.io.PrintWriter" %>
-<% request.setCharacterEncoding("UTF-8"); %>
+<%@ page import="java.io.File" %>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
+<%
+request.setCharacterEncoding("UTF-8");
+%>
 <jsp:useBean id="post" class="post.Post" scope="page" />
 <jsp:setProperty name="post" property="TITLE" />
 <jsp:setProperty name="post" property="INFO" />
@@ -20,8 +25,14 @@
 </head>
 <body>
 	<%
+		int maxImageSize = 100*1024*1024;
+		String endCodingType = "UTF-8";
+		String directory = "C:/Users/com/Desktop/spaceZ/test/src/main/webapp/images/mainImage";
+		MultipartRequest multipartRequest = new MultipartRequest(request, directory, maxImageSize, endCodingType, new DefaultFileRenamePolicy());
+		String fileName = multipartRequest.getFilesystemName("upLoadFile");
+		System.out.println(fileName);
 		PostDAO postDAO = new PostDAO();
-		int result = postDAO.posting(post);
+		int result = postDAO.posting(post, fileName);
 		if(result == -1){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");

@@ -3,7 +3,9 @@
 <%@ page import="post.PostDAO" %>
 <%@ page import="post.Post" %>
 <%@ page import="java.io.PrintWriter" %>
-<% request.setCharacterEncoding("UTF-8"); %>
+<%
+request.setCharacterEncoding("UTF-8");
+%>
 <jsp:useBean id="post" class="post.Post" scope="page" />
 <jsp:setProperty name="post" property="POST_NUM" />
 <!DOCTYPE html>

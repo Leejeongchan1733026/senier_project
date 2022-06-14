@@ -26,7 +26,7 @@
     <title>Document</title>
 </head>
 	<%
-		String ID = null;
+	String ID = null;
 		if(session.getAttribute("ID") != null){
 			ID = (String) session.getAttribute("ID");
 		}

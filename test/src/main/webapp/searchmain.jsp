@@ -31,7 +31,7 @@
 </head>
 <body>
 	<%
-		String ID = null;
+	String ID = null;
 		if(session.getAttribute("ID") != null){
 			ID = (String) session.getAttribute("ID");
 		}
@@ -41,14 +41,14 @@
             <i class="ri-arrow-up-s-line"></i>
         </div></a>
         <%
-    			if(ID != null){
-   		%>
+        if(ID != null){
+        %>
     			<div class="topBtn writeBtn">
             		<i class="ri-pencil-fill"></i>
         		</div>
     	<%
-    			}
-        %>
+    	}
+    	%>
     </div>
     <header>
         <nav>
@@ -60,12 +60,12 @@
                 </button>
             </form>
             <%
-    			if(ID == null){
-   			%>
+            if(ID == null){
+            %>
     			<a href="login.html"><div class="loginBtn"><p>로그인</p></div></a>
     		<%
-    			} else {
-   			%>
+    		} else {
+    		%>
     			<div class="myIcons">
                 <a href="myPostView.jsp"><div class="myIcon">
                     <i class="ri-file-list-line"></i>
@@ -81,7 +81,7 @@
                 </div></a>
             </div>
     		<%
-    			}	
+    		}
     		%>
         </nav>
     </header>
@@ -95,16 +95,16 @@
                 </div>
                 <div class="article-box-wrapper">
                 	<%
-                		PostDAO postDAO = new PostDAO();
-                		ArrayList<Post> list = postDAO.getSearch("TITLE", request.getParameter("searchText"));
-                		for(int i = 0; i < list.size(); i++){
-                			String titleMain = "images/mainImage/" + list.get(i).getPOST_NUM() + ".jpg";
-                			String postDetail = "postDetail.jsp?postID=" + list.get(i).getPOST_NUM();
-                			String scoreText = Double.toString(Math.round(list.get(i).getSCORE() * 10) / 10.0);
-                			String postDate = "0";
-                			if(list.get(i).getPOST_DATE() != null){
-                				postDate = list.get(i).getPOST_DATE().substring(0, 10);
-                			}
+                	PostDAO postDAO = new PostDAO();
+                	                	                		ArrayList<Post> list = postDAO.getSearch("TITLE", request.getParameter("searchText"));
+                	                	                		for(int i = 0; i < list.size(); i++){
+                	                	                			String titleMain = "images/mainImage/" + list.get(i).getPOST_NUM() + ".jpg";
+                	                	                			String postDetail = "postDetail.jsp?postID=" + list.get(i).getPOST_NUM();
+                	                	                			String scoreText = Double.toString(Math.round(list.get(i).getSCORE() * 10) / 10.0);
+                	                	                			String postDate = "0";
+                	                	                			if(list.get(i).getPOST_DATE() != null){
+                	                	                				postDate = list.get(i).getPOST_DATE().substring(0, 10);
+                	                	                			}
                 	%>
                     <div class="article-box">
                         <img src=<%=titleMain%> class="a-box-image">

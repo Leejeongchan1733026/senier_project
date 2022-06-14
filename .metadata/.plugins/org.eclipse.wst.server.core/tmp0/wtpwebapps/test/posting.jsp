@@ -67,7 +67,7 @@
                 <h1 class="write-title">
                     게시글 작성
                 </h1>
-                <form action="postingAction.jsp" class="write-wrapper">
+                <form action="postingAction.jsp" class="write-wrapper" enctype="multipart/form-data" method="post">
                 	<input type="hidden" name="ID" class="write-input" readonly value = <%=ID%> required />
                     <input type="text" name="TITLE" class="write-input" placeholder="제목을 입력하세요" required />
                     <input type="text" name="INFO" class="write-input" placeholder="소개문을 입력하세요" required />
@@ -88,7 +88,7 @@
                     </script>
                     <input type="text" name="PRICE" class="write-input" placeholder="대여금액을 입력하세요" required />
                     <input type="text" name="RENTAL_TIME" class="write-input" placeholder="대여 시간을 입력하세요 예)17:00~익일10:00" required />
-                    <input type="file" name="" class="write-file">
+                    <input type="file" name="upLoadFile" class="write-file" >
                     <div class="submit-wrapper">
                         <button type="button" name="" class="write-submit w-delete">
                             <p>삭제하기</p>
