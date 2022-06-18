@@ -87,9 +87,10 @@
                 		ReserveDAO reserveDAO = new ReserveDAO();
                 		ArrayList<Reserve> list = reserveDAO.getSearch(ID,"RENT_USEREMAIL");
                 		for(int i = 0; i < list.size(); i++){
-                			String titleMain = "images/mainImage/" + list.get(i).getPOST_NUM() + ".jpg";
+                			String titleMain = "images/mainImage/" + reserveDAO.reservePhoto(list.get(i).getPOST_NUM());
                 			String postDetail = "postDetail.jsp?postID=" + list.get(i).getPOST_NUM();
                 			String reserveNumber = list.get(i).getRESERVE_NUM();
+                			String postDate = list.get(i).getRESERVE_DATE().substring(0, 10);
                 	%>
                     <div class="article-box">
                         <img src=<%=titleMain%> class="a-box-image">
@@ -99,7 +100,7 @@
                                 <h5 class="address">예약자 : <%=list.get(i).getEMAIL()%></h5>
                                 <h5 class="address">대여자 : <%=list.get(i).getRENT_USEREMAIL()%></h5>
                                 <h5 class="address">예약 번호 : <%=list.get(i).getRESERVE_NUM()%></h5>
-                                <h2 class="price">₩<%=list.get(i).getPRICE()%> <span class="time">/ <%=list.get(i).getRESERVE_DATE()%></span></h2>
+                                <h2 class="price">₩<%=list.get(i).getPRICE()%> <span class="time">/ <%=postDate%></span></h2>
                             </div>
                             <div class="a-box-under">
                                 <a href= <%= postDetail%> >

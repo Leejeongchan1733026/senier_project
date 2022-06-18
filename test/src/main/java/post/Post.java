@@ -13,6 +13,7 @@ public class Post {
 	private String POST_NUM;
 	private double SCORE;
 	private String RENTAL_TIME;
+	private String PHOTO;
 	
 	public String getPOST_NUM() {
 		return POST_NUM;
@@ -80,6 +81,11 @@ public class Post {
 	public void setRENTAL_TIME(String rENTAL_TIME) {
 		RENTAL_TIME = rENTAL_TIME;
 	}
+	public String getPHOTO() {
+		return PHOTO;
+	}
+	public void setPHOTO(String pHOTO) {
+		PHOTO = pHOTO;
+	}
 
-	
 }

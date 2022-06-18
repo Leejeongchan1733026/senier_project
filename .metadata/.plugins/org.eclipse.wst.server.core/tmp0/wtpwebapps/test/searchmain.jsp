@@ -98,7 +98,7 @@
                 	PostDAO postDAO = new PostDAO();
                 	                	                		ArrayList<Post> list = postDAO.getSearch("TITLE", request.getParameter("searchText"));
                 	                	                		for(int i = 0; i < list.size(); i++){
-                	                	                			String titleMain = "images/mainImage/" + list.get(i).getPOST_NUM() + ".jpg";
+                	                	                			String titleMain = "images/mainImage/" + list.get(i).getPHOTO();
                 	                	                			String postDetail = "postDetail.jsp?postID=" + list.get(i).getPOST_NUM();
                 	                	                			String scoreText = Double.toString(Math.round(list.get(i).getSCORE() * 10) / 10.0);
                 	                	                			String postDate = "0";

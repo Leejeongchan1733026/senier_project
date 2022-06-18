@@ -49,6 +49,21 @@ public class ReserveDAO {
 		}
 		return list;
 	}
+	
+	public String reservePhoto(String postNum) {
+		String SQL = " SELECT * FROM POST WHERE POST_NUM = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, postNum);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getString(12);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	public int reserveDelete(int reserveNumber) {
 		String SQL = "DELETE FROM RESERVE WHERE RESERVE_NUM = ?";

@@ -81,8 +81,8 @@
                 <h1 class="write-title">
                     게시글 작성
                 </h1>
-                <form action="postReviseAction.jsp" class="write-wrapper">
-                	<input type="hidden" name="ID" class="write-input" readonly value = <%=ID%> required />
+                <form action="postReviseAction.jsp" class="write-wrapper" enctype="multipart/form-data" method="post">
+                	<input type="hidden" name="POST_NUM" class="write-input" readonly value = <%=postID%> required />
                     <input type="text" name="TITLE" class="write-input" placeholder="제목을 입력하세요" value = <%=post.getTITLE()%> required />
                     <input type="text" name="INFO" class="write-input" placeholder="소개문을 입력하세요"value = <%=post.getINFO()%> required />
                     <textarea name="POST_CONTENTS" class="write-textarea" placeholder="내용을 입력하세요" required ><%=post.getPOST_CONTENTS()%></textarea>
@@ -103,7 +103,7 @@
                     <input type="text" name="PRICE" class="write-input" placeholder="대여금액을 입력하세요" value = <%=post.getPRICE()%> required />
                     <input type="text" name="RENTAL_TIME" class="write-input" placeholder="대여 시간을 입력하세요 예)17:00~익일10:00" value = <%=post.getRENTAL_TIME()%> required />
                     <input type="hidden" name="POST_NUM" class="write-input" value = <%=post.getPOST_NUM()%> required />
-                    <input type="file" name="" class="write-file">
+                    <input type="file" name="upLoadFile" class="write-file">
                     <div class="submit-wrapper">
                         <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="postDeleteAction.jsp?postID=<%=post.getPOST_NUM() %>" class="write-submit w-delete">삭제하기</a>
                         <button type="submit" name="" class="write-submit">

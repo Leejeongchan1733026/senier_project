@@ -47,7 +47,7 @@
 		}
 		PostDAO postDAO = new PostDAO();
 		Post post = postDAO.getPostDetail(postID);
-		String titleMain = "images/mainImage/" + postID + ".jpg";
+		String titleMain = "images/mainImage/" + post.getPHOTO();
 		String scoreText = Double.toString(Math.round(post.getSCORE() * 10) / 10.0);
 		String score = "0"; //별점이 없을 경우, 0점으로 초기화
 		String postContents = post.getPOST_CONTENTS().replace("\r\n", "<br>");

@@ -90,9 +90,6 @@
                     <input type="text" name="RENTAL_TIME" class="write-input" placeholder="대여 시간을 입력하세요 예)17:00~익일10:00" required />
                     <input type="file" name="upLoadFile" class="write-file" >
                     <div class="submit-wrapper">
-                        <button type="button" name="" class="write-submit w-delete">
-                            <p>삭제하기</p>
-                        </button>
                         <button type="submit" name="" class="write-submit">
                             <p>작성하기</p>
                         </button>

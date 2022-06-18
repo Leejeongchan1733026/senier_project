@@ -3,18 +3,13 @@
 <%@ page import="post.PostDAO" %>
 <%@ page import="post.Post" %>
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.io.File" %>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%
 request.setCharacterEncoding("UTF-8");
 %>
 <jsp:useBean id="post" class="post.Post" scope="page" />
-<jsp:setProperty name="post" property="TITLE" />
-<jsp:setProperty name="post" property="INFO" />
-<jsp:setProperty name="post" property="ID" />
-<jsp:setProperty name="post" property="POST_CONTENTS" />
-<jsp:setProperty name="post" property="ADDRESS" />
-<jsp:setProperty name="post" property="PRICE" />
-<jsp:setProperty name="post" property="RENTAL_TIME" />
-<jsp:setProperty name="post" property="POST_NUM" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,12 +18,32 @@ request.setCharacterEncoding("UTF-8");
 </head>
 <body>
 	<%
-		PostDAO postDAO = new PostDAO();
-		int result = postDAO.postRevise(post);
+	PostDAO postDAO = new PostDAO();
+	int maxImageSize = 100*1024*1024;
+	String endCodingType = "UTF-8";
+	String directory = "C:/Users/com/Desktop/spaceZ/test/src/main/webapp/images/mainImage";
+	MultipartRequest multipartRequest = new MultipartRequest(request, directory, maxImageSize, endCodingType, new DefaultFileRenamePolicy());
+	String fileName = multipartRequest.getFilesystemName("upLoadFile");
+	post.setTITLE(multipartRequest.getParameter("TITLE"));
+	post.setINFO(multipartRequest.getParameter("INFO"));
+	post.setPOST_NUM(multipartRequest.getParameter("POST_NUM"));
+	post.setPOST_CONTENTS(multipartRequest.getParameter("POST_CONTENTS"));
+	post.setADDRESS(multipartRequest.getParameter("ADDRESS"));
+	post.setPRICE(multipartRequest.getParameter("PRICE"));
+	post.setRENTAL_TIME(multipartRequest.getParameter("RENTAL_TIME"));
+	if(fileName != null){
+		post.setPHOTO(fileName);
+	} else {
+		postDAO.getPostDetail(Integer.parseInt(multipartRequest.getParameter("POST_NUM")));
+		Post postNUM = postDAO.getPostDetail(Integer.parseInt(multipartRequest.getParameter("POST_NUM")));
+		post.setPHOTO(postNUM.getPHOTO());
+		System.out.println(postNUM.getPHOTO());
+	}
+	int result = postDAO.postRevise(post);
 		if(result == -1){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('작성에 실패하였습니다.')");
+			script.println("alert('수정에 실패하였습니다.')");
 			script.println("history.back()");
 			script.println("</script>");
 		}

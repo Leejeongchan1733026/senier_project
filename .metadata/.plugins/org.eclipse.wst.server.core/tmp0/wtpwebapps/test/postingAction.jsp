@@ -10,13 +10,6 @@
 request.setCharacterEncoding("UTF-8");
 %>
 <jsp:useBean id="post" class="post.Post" scope="page" />
-<jsp:setProperty name="post" property="TITLE" />
-<jsp:setProperty name="post" property="INFO" />
-<jsp:setProperty name="post" property="ID" />
-<jsp:setProperty name="post" property="POST_CONTENTS" />
-<jsp:setProperty name="post" property="ADDRESS" />
-<jsp:setProperty name="post" property="PRICE" />
-<jsp:setProperty name="post" property="RENTAL_TIME" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,9 +23,16 @@ request.setCharacterEncoding("UTF-8");
 		String directory = "C:/Users/com/Desktop/spaceZ/test/src/main/webapp/images/mainImage";
 		MultipartRequest multipartRequest = new MultipartRequest(request, directory, maxImageSize, endCodingType, new DefaultFileRenamePolicy());
 		String fileName = multipartRequest.getFilesystemName("upLoadFile");
-		System.out.println(fileName);
+		post.setTITLE(multipartRequest.getParameter("TITLE"));
+		post.setINFO(multipartRequest.getParameter("INFO"));
+		post.setID(multipartRequest.getParameter("ID"));
+		post.setPOST_CONTENTS(multipartRequest.getParameter("POST_CONTENTS"));
+		post.setADDRESS(multipartRequest.getParameter("ADDRESS"));
+		post.setPRICE(multipartRequest.getParameter("PRICE"));
+		post.setRENTAL_TIME(multipartRequest.getParameter("RENTAL_TIME"));
+		post.setPHOTO(multipartRequest.getFilesystemName("upLoadFile"));
 		PostDAO postDAO = new PostDAO();
-		int result = postDAO.posting(post, fileName);
+		int result = postDAO.posting(post);
 		if(result == -1){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");

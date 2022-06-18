@@ -87,7 +87,7 @@
                 		ReserveDAO reserveDAO = new ReserveDAO();
                 		ArrayList<Reserve> list = reserveDAO.getSearch(ID,"EMAIL");
                 		for(int i = 0; i < list.size(); i++){
-                			String titleMain = "images/mainImage/" + list.get(i).getPOST_NUM() + ".jpg";
+                			String titleMain = "images/mainImage/" + reserveDAO.reservePhoto(list.get(i).getPOST_NUM());
                 			String postDetail = "postDetail.jsp?postID=" + list.get(i).getPOST_NUM();
                 			String reserveNumber = list.get(i).getRESERVE_NUM();
                 			String postDate = list.get(i).getRESERVE_DATE().substring(0, 10);

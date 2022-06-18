@@ -11,11 +11,6 @@
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <jsp:useBean id="user" class="user.User" scope="page" />
-<jsp:setProperty name="user" property="PASSWORD" />
-<jsp:setProperty name="user" property="NICKNAME" />
-<jsp:setProperty name="user" property="EMAIL" />
-<jsp:setProperty name="user" property="PHONE_NUM" />
-<jsp:setProperty name="user" property="ADDRESS" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,6 +36,11 @@
 				e.printStackTrace();
 			}
 		}
+		user.setEMAIL(multipartRequest.getParameter("EMAIL"));
+		user.setPASSWORD(multipartRequest.getParameter("PASSWORD"));
+		user.setNICKNAME(multipartRequest.getParameter("NICKNAME"));
+		user.setPHONE_NUM(multipartRequest.getParameter("PHONE_NUM"));
+		user.setADDRESS(multipartRequest.getParameter("ADDRESS"));
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.reviseUserInfo(user);
 		if(result == -1){

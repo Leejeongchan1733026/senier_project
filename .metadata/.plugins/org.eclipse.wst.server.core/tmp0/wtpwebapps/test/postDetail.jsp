@@ -49,7 +49,7 @@
 		postDAO.viewCountUp(postID);
 		Post post = postDAO.getPostDetail(postID);
 		String postReserve = "reserve.jsp?postID=" + post.getPOST_NUM();
-		String titleMain = "images/mainImage/" + postID + ".jpg";
+		String titleMain = "images/mainImage/" + post.getPHOTO();
 		String score = Double.toString(Math.round(post.getSCORE() * 10) / 10.0);
 		String postContents = post.getPOST_CONTENTS().replace("\r\n", "<br>");
 		String postDate = post.getPOST_DATE().substring(0, 10);

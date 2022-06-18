@@ -1,0 +1,7 @@
+{
+  "C:\\Users\\com\\.p2\\pool\\plugins\\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.2.v20220201-1208\\jre\\lib\\jrt-fs.jar": {
+    "location": "C:\\Users\\com\\.p2\\pool\\plugins\\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.2.v20220201-1208\\jre\\lib\\jrt-fs.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027C:\\Users\\com\\.p2\\pool\\plugins\\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.2.v20220201-1208\\jre\\lib\\jrt-fs.jar\u0027. Neither fingerprint \u0027d079f08c3ac7d2321b45e5f3ce3195c9a531ea2f\u0027 nor symbolic name \u0027jre\u0027 are known."
+  }
+}

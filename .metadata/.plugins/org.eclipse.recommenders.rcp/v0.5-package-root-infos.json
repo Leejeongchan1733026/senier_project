@@ -1,0 +1,10 @@
+[
+  {
+    "symbolicName": "org.apache.tomcat-jni",
+    "version": {
+      "major": 9,
+      "minor": 0,
+      "micro": 64,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "b56176c7d96f216135c33020981f2a444f082510"
