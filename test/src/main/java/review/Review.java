@@ -1,4 +1,4 @@
-package review;
+package review; //´ñ±Û DB
 
 public class Review {
 	 private String SCORE;
